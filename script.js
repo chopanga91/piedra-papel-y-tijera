@@ -7,6 +7,12 @@ function computerPlay() {
 let puntJugador = 0
 let puntajePC = 0
 
+//mostrar recuadro donde este el resultado
+
+
+
+
+
 const display = document.getElementsByClassName('display');
 
 function playRound(playerSelection, computerSelection) {
