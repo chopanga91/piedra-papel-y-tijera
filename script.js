@@ -7,27 +7,35 @@ function computerPlay() {
 let puntJugador = 0
 let puntajePC = 0
 
+//mostrar recuadro donde este el resultado
+
+
+
+
+
+const display = document.getElementsByClassName('display');
+
 function playRound(playerSelection, computerSelection) {
     if (playerSelection.toLowerCase() === "piedra" & computerSelection === "tijera") {
-        console.log("Ganaste! piedra mata tijera")
+        display[0].innerHTML = "Ganaste! piedra mata tijera";
         puntJugador = puntJugador + 1;
     } else if (playerSelection.toLowerCase() === "piedra" & computerSelection === "papel") {
-        console.log("Perdiste! papel gana a piedra")
+         display[0].innerHTML = "Perdiste! papel gana a piedra"
         puntajePC = puntajePC + 1;
     } else if (playerSelection.toLowerCase() === "papel" & computerSelection === "tijera") {
-        console.log("Perdiste! tijera mata a papel")
+         display[0].innerHTML = "Perdiste! tijera mata a papel"
         puntajePC = puntajePC + 1;
     } else if (playerSelection.toLowerCase() === "papel" & computerSelection === "piedra") {
-        console.log("Ganaste! papel mata a piedra")
+         display[0].innerHTML = "Ganaste! papel mata a piedra"
         puntJugador = puntJugador + 1;
     } else if  (playerSelection.toLowerCase() === "tijera" & computerSelection === "piedra") {
-        console.log("Perdiste! tijera pierde con piedra")
+         display[0].innerHTML = "Perdiste! tijera pierde con piedra"
         puntajePC = puntajePC + 1;
     } else if  (playerSelection.toLowerCase() === "tijera" & computerSelection === "papel") {
-            console.log("Ganaste! tijera mata a papel")
+             display[0].innerHTML = "Ganaste! tijera mata a papel"
             puntJugador = puntJugador + 1;
     } else if  (playerSelection.toLowerCase() ===  computerSelection ) {
-        console.log("Esto es un empate!");
+         display[0].innerHTML = "Esto es un empate!";
     }
 }
 function game() {
@@ -45,4 +53,19 @@ function game() {
 
 }
 
-game();
+boton = document.getElementsByClassName('btn');
+boton[0].addEventListener('click', jugarPiedra);
+function jugarPiedra() {
+    return playRound('piedra', computerPlay());
+}
+
+boton[1].addEventListener('click', jugarPapel);
+function jugarPapel() {
+    return playRound('papel', computerPlay());
+}
+
+boton[2].addEventListener('click', jugarTijera);
+function jugarTijera() {
+    return playRound('tijera', computerPlay());
+}
+//game();
